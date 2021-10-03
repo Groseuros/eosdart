@@ -8,16 +8,16 @@ import 'package:pointycastle/pointycastle.dart';
 var base58Chars = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
 var base64Chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
-List<int> create_base58_map() {
+List<int> createBase58Map() {
   var base58M = List.filled(256, -1);
   for (var i = 0; i < base58Chars.length; ++i) {
       base58M[base58Chars.codeUnitAt(i)] = i;
   }
   return base58M;
 }
-final base58Map = create_base58_map();
+final base58Map = createBase58Map();
 
-List<int> create_base64_map() {
+List<int> createBase64Map() {
     var base64M = List.filled(256, -1);
     for (var i = 0; i < base64Chars.length; ++i) {
         base64M[base64Chars.codeUnitAt(i)] = i;
@@ -25,7 +25,7 @@ List<int> create_base64_map() {
     base64M['='.codeUnitAt(0)] = 0;
     return base64M;
 }
-final base64Map = create_base64_map();
+final base64Map = createBase64Map();
 
 /// Is `bignum` a negative number?
 bool isNegative(Uint8List bignum) {
@@ -137,7 +137,7 @@ Uint8List base58ToBinary(int size,String s) {
 /// Convert `bignum` to a base-58 number
 /// @param minDigits 0-pad result to this many digits
 String binaryToBase58(Uint8List bignum,{ minDigits = 1}) {
-    var result = List<int>();
+    var result = [];
     for (var byte in bignum) {
         var carry = byte;
         for (var j = 0; j < result.length; ++j) {
@@ -157,7 +157,7 @@ String binaryToBase58(Uint8List bignum,{ minDigits = 1}) {
             result.add('1'.codeUnitAt(0));
         }
     }
-    return String.fromCharCodes(result.reversed.toList());
+    return String.fromCharCodes(result.reversed.toList() as Iterable<int>);
 }
 
 /// Convert an unsigned base-64 number in `s` to a bignum

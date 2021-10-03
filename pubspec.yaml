@@ -1,19 +1,20 @@
 name: eos_dart
 description: A package for eosio
 version: 0.0.1
-author:
-homepage:
+
+publish_to: none
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  eosdart_ecc: ^0.2.2
-  eosdart: ^0.3.3
-  pointycastle: ^1.0.1 
-  crypto: ^2.0.6
+  eosdart_ecc: ^0.4.4
+  eosdart:
+    git: https://github.com/Groseuros/eosdart-1.git
+  pointycastle: ^3.3.4
+  crypto: ^3.0.1
   # bignum:
   #   git: git://github.com/Dartist/dart-bignum.git 
 
@@ -21,10 +22,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-# For information on the generic Dart part of this file, see the
-# following page: https://www.dartlang.org/tools/pub/pubspec
-
-# The following section is specific to Flutter.
 flutter:
   # To add assets to your package, add an assets section, like this:
   # assets:

@@ -1,6 +1,3 @@
-import 'dart:typed_data';
-
-import 'package:eosdart_ecc/eosdart_ecc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:eos_dart/index.dart';
 void main() {
@@ -31,7 +28,7 @@ void main() {
       blocksBehind: 3,
       expireSeconds: 240+16200,
     );
-    // expect(trx["transaction_id"], isNot(""));
+    expect(trx["transaction_id"], isNot(""));
   });
 
 }

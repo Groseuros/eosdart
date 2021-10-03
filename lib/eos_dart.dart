@@ -1,11 +1,10 @@
 library eos_dart;
-import 'package:eosdart_ecc/eosdart_ecc.dart';
 import 'package:eosdart/eosdart.dart';
 
 class EosDart{
   
-  final String nodePath;
-  EOSClient _client;
+  final String? nodePath;
+  late EOSClient _client;
   EosDart({this.nodePath}){
     _client = EOSClient('https://eos.greymass.com', 'v1');
   } 

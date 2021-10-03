@@ -7,7 +7,7 @@ class AuthorityProviderArgs {
     /// Transaction that needs to be signed 
   final Object transaction;
     /// Public keys associated with the private keys that the `SignatureProvider` holds
-  final List<String> availableKeys;
+  final List<String>? availableKeys;
 
   AuthorityProviderArgs(this.transaction,this.availableKeys);
 }
@@ -29,10 +29,10 @@ abstract class AbiProvider {
 /// Structure for the raw form of ABIs
 class BinaryAbi {
     /// account which has deployed the ABI
-    final String accountName;
+    final String? accountName;
 
     /// abi in binary form 
-    final Uint8List abi;
+    final Uint8List? abi;
 
     BinaryAbi(this.accountName,this.abi);
 }
@@ -40,10 +40,10 @@ class BinaryAbi {
 /// Holds a fetched abi
 class CachedAbi {
     /// abi in binary form
-    final Uint8List rawAbi;
+    final Uint8List? rawAbi;
 
     /// abi in structured form
-    final Abi abi;
+    final Abi? abi;
 
     CachedAbi({this.abi,this.rawAbi});
 }
@@ -51,16 +51,16 @@ class CachedAbi {
 /// Arguments to `sign`
 class SignatureProviderArgs {
     /// Chain transaction is for
-    final String chainId;
+    final String? chainId;
 
     /// Public keys associated with the private keys needed to sign the transaction
-    final List<String> requiredKeys;
+    final List<String>? requiredKeys;
 
     /// Transaction to sign
-    final Uint8List serializedTransaction;
+    final Uint8List? serializedTransaction;
 
     /// ABIs for all contracts with actions included in `serializedTransaction`
-    final List<BinaryAbi> abis;
+    final List<BinaryAbi>? abis;
 
     SignatureProviderArgs({this.abis,this.chainId,this.requiredKeys,this.serializedTransaction});
 }
@@ -69,7 +69,7 @@ class SignatureProviderArgs {
 abstract class SignatureProvider {
     /// Public keys associated with the private keys that the `SignatureProvider` holds
     // getAvailableKeys: () => Promise<string[]>;
-    Future<List<String>> getAvailableKeys();
+    Future<List<String>?> getAvailableKeys();
 
     /// Sign a transaction 
     // sign: (args: SignatureProviderArgs) => Promise<PushTransactionArgs>;
