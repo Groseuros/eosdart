@@ -57,7 +57,7 @@ class SignatureProviderArgs {
     final List<String>? requiredKeys;
 
     /// Transaction to sign
-    final Uint8List? serializedTransaction;
+    Uint8List? serializedTransaction;
 
     /// ABIs for all contracts with actions included in `serializedTransaction`
     final List<BinaryAbi>? abis;
