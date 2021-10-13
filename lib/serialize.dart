@@ -106,7 +106,7 @@ class Symbol {
 
 class Contract {
   final Map<String?, Type>? actions;
-  final Map<String, Type>? types;
+  final Map<String?, Type>? types;
 
   Contract({this.actions, this.types});
 }
@@ -1337,7 +1337,7 @@ Type getType(Map<String?, Type> types, String? name) {
 /// @param initialTypes Set of types to build on.
 ///     In most cases, it's best to fill this from a fresh call to `getTypesFromAbi()`.
 
-dynamic getTypesFromAbi(Map<String, Type> initialTypes, Abi abi) {
+Map<String?, Type> getTypesFromAbi(Map<String, Type> initialTypes, Abi abi) {
   var types = Map.from(initialTypes).cast<String?, Type>();
   if (abi.types != null) {
     for (var item in abi.types!) {

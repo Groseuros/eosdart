@@ -35,10 +35,10 @@ class Api {
   String? chainId;
 
   /// Converts abi files between binary and structured form (`abi.abi.json`) */
-  late Map<String, ser.Type> abiTypes;
+  late Map<String?, ser.Type> abiTypes;
 
   /// Converts transactions between binary and structured form (`transaction.abi.json`) */
-  late Map<String, ser.Type> transactionTypes;
+  late Map<String?, ser.Type> transactionTypes;
 
   /// Holds information needed to serialize contract actions */
   var contracts = Map<String?, ser.Contract>();
